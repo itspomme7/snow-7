@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>个人项目导航中心</title>
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&amp;family=Roboto:wght@300;400&amp;display=swap" rel="stylesheet"/>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+            font-family: 'Roboto', sans-serif; 
+            background: #fdf8f3;
+            color: #333;
+            padding-bottom: 100px;
+        }
+        .header {
+            height: 100px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+            background: #ffeedd;
+            color: #4a3f39;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 22px;
+            margin: 40px 0 20px;
+            color: #4a4a4a;
+            position: relative;
+            padding-left: 15px;
+        }
+        .section-title:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 70%;
+            width: 4px;
+            background: linear-gradient(to bottom, #e2b899, #eec6a0);
+            border-radius: 2px;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        .card-header {
+            padding: 20px;
+            background: #ffeedd;
+            color: #4a3f39;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+        }
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-description {
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #666;
+            flex-grow: 1;
+        }
+        .platforms {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .platform {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            color: #666;
+        }
+        .platform i {
+            font-size: 16px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        .btn {
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .btn-primary {
+            background: #ffeedd;
+            color: #4a3f39;
+            border: none;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #e2b899;
+            border: 1px solid #e2b899;
+        }
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #999;
+            font-size: 13px;
+        }
+        .save-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            padding: 12px;
+            background: #ffeedd;
+            color: #4a3f39;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    
+        background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .project-card {
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+    
+    body {
+        background: url('snow.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .project-card {
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+    
+    body {
+        background: url('snow.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .project-card {
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+    </style>
+</head>
+<body><audio controls="controls" id="bg-music" loop="True" src="the flood.mp3" style="display: none;" type="audio/mpeg"></audio>
+<div class="header">
+<h1>个人项目导航中心</h1>
+</div>
+<div class="container">
+<h2 class="section-title">色卡系列</h2>
+<div class="projects-grid">
+<div class="project-card">
+<div class="card-header">高级美发染发配方色卡集</div>
+<div class="card-body">
+<p class="card-description">专业染发配方，色彩科学与艺术的美妙结合，包含丽柜和可丽秀专业配方。</p>
+<div class="platforms">
+<div class="platform">
+<i class="fab fa-github"></i>
+<span>GitHub</span>
+</div>
+<div class="platform">
+<i class="fas fa-cloud"></i>
+<span>Vercel</span>
+</div>
+</div>
+<div class="btn-group">
+<a class="btn btn-primary" href="https://itspomme6.github.io/color-6/" target="_blank">
+<i class="fas fa-external-link-alt"></i> GitHub版
+                        </a>
+<a class="btn btn-outline" href="https://color-6.vercel.app/" target="_blank">
+<i class="fas fa-external-link-alt"></i> Vercel版
+                        </a>
+</div>
+<div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-c5147776" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://itspomme6.github.io/color-6/"/><button onclick="copyToClipboard('c5147776')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div><div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-d005bdec" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://color-6.vercel.app/"/><button onclick="copyToClipboard('d005bdec')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div></div>
+</div>
+</div>
+<h2 class="section-title">实用工具系列</h2>
+<div class="projects-grid">
+<div class="project-card">
+<div class="card-header">账户管理</div>
+<div class="card-body">
+<p class="card-description">个人账户管理系统，方便管理各种账户信息。</p>
+<div class="platforms">
+<div class="platform">
+<i class="fab fa-github"></i>
+<span>GitHub</span>
+</div>
+<div class="platform">
+<i class="fas fa-cloud"></i>
+<span>Vercel</span>
+</div>
+</div>
+<div class="btn-group">
+<a class="btn btn-primary" href="https://itspomme7.github.io/account-7/" target="_blank">
+<i class="fas fa-external-link-alt"></i> GitHub版
+                        </a>
+<a class="btn btn-outline" href="https://account-7.vercel.app/" target="_blank">
+<i class="fas fa-external-link-alt"></i> Vercel版
+                        </a>
+</div>
+<div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-45810c26" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://itspomme7.github.io/account-7/"/><button onclick="copyToClipboard('45810c26')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div><div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-eb483b34" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://account-7.vercel.app/"/><button onclick="copyToClipboard('eb483b34')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div></div>
+</div>
+<div class="project-card">
+<div class="card-header">节点管理</div>
+<div class="card-body">
+<p class="card-description">网络节点管理与监控工具。</p>
+<div class="platforms">
+<div class="platform">
+<i class="fab fa-github"></i>
+<span>GitHub</span>
+</div>
+<div class="platform">
+<i class="fas fa-cloud"></i>
+<span>Vercel</span>
+</div>
+</div>
+<div class="btn-group">
+<a class="btn btn-primary" href="https://itspomme7.github.io/node-7/" target="_blank">
+<i class="fas fa-external-link-alt"></i> GitHub版
+                        </a>
+<a class="btn btn-outline" href="https://node-7.vercel.app/" target="_blank">
+<i class="fas fa-external-link-alt"></i> Vercel版
+                        </a>
+</div>
+<div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-37cc353c" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://itspomme7.github.io/node-7/"/><button onclick="copyToClipboard('37cc353c')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div><div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-1c0c6083" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://node-7.vercel.app/"/><button onclick="copyToClipboard('1c0c6083')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div></div>
+</div>
+<div class="project-card">
+<div class="card-header">银行工具</div>
+<div class="card-body">
+<p class="card-description">银行相关实用工具集合。</p>
+<div class="platforms">
+<div class="platform">
+<i class="fab fa-github"></i>
+<span>GitHub</span>
+</div>
+<div class="platform">
+<i class="fas fa-cloud"></i>
+<span>Vercel</span>
+</div>
+</div>
+<div class="btn-group">
+<a class="btn btn-primary" href="https://itspomme7.github.io/bank-7/" target="_blank">
+<i class="fas fa-external-link-alt"></i> GitHub版
+                        </a>
+<a class="btn btn-outline" href="https://bank-7.vercel.app/" target="_blank">
+<i class="fas fa-external-link-alt"></i> Vercel版
+                        </a>
+</div>
+<div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-69459cb2" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://itspomme7.github.io/bank-7/"/><button onclick="copyToClipboard('69459cb2')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div><div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-2cf14469" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://bank-7.vercel.app/"/><button onclick="copyToClipboard('2cf14469')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div></div>
+</div>
+<div class="project-card">
+<div class="card-header">信件管理</div>
+<div class="card-body">
+<p class="card-description">电子信件管理与归档系统。</p>
+<div class="platforms">
+<div class="platform">
+<i class="fab fa-github"></i>
+<span>GitHub</span>
+</div>
+<div class="platform">
+<i class="fas fa-cloud"></i>
+<span>Vercel</span>
+</div>
+</div>
+<div class="btn-group">
+<a class="btn btn-primary" href="https://itspomme7.github.io/missluo-7/" target="_blank">
+<i class="fas fa-external-link-alt"></i> GitHub版
+                        </a>
+<a class="btn btn-outline" href="https://letter-7.vercel.app/" target="_blank">
+<i class="fas fa-external-link-alt"></i> Vercel版
+                        </a>
+</div>
+<div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-f45a2712" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://itspomme7.github.io/missluo-7/"/><button onclick="copyToClipboard('f45a2712')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div><div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-5e583074" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://letter-7.vercel.app/"/><button onclick="copyToClipboard('5e583074')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div></div>
+</div>
+</div>
+<h2 class="section-title">小岛周末导航</h2>
+<div class="projects-grid">
+<div class="project-card">
+<div class="card-header">小岛周末导航</div>
+<div class="card-body">
+<p class="card-description">周末休闲娱乐导航网站，发现小岛上的精彩活动。</p>
+<div class="platforms">
+<div class="platform">
+<i class="fab fa-github"></i>
+<span>GitHub</span>
+</div>
+<div class="platform">
+<i class="fas fa-cloud"></i>
+<span>Vercel</span>
+</div>
+</div>
+<div class="btn-group">
+<a class="btn btn-primary" href="https://itspomme9.github.io/weekend-9/" target="_blank">
+<i class="fas fa-external-link-alt"></i> GitHub版
+                        </a>
+<a class="btn btn-outline" href="https://weekend-9.vercel.app/" target="_blank">
+<i class="fas fa-external-link-alt"></i> Vercel版
+                        </a>
+</div>
+<div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-cad3d5fb" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://itspomme9.github.io/weekend-9/"/><button onclick="copyToClipboard('cad3d5fb')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div><div class="copy-block" style="margin-top: 10px; display: flex; align-items: center;"><input id="input-d7d4caee" readonly="true" style="flex:1; padding:4px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" type="text" value="https://weekend-9.vercel.app/"/><button onclick="copyToClipboard('d7d4caee')" style="margin-left:8px; padding:4px 10px; font-size:12px; cursor:pointer; background:#e2b899; border:none; border-radius:4px;">复制链接</button></div></div>
+</div>
+</div>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+        // 设置更新日期
+        document.getElementById('updateDate').textContent = new Date().toLocaleDateString('zh-CN');
+        
+                });
+            });
+        });
+    </script>
+<script>
+function copyToClipboard(id) {
+    var copyText = document.getElementById("input-" + id);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("链接已复制: " + copyText.value);
+}
+</script>
+<div id="music-toggle" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #e2b899;
+    padding: 10px 14px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 999;
+">▶️ 播放音乐</div>
+
+<script>
+const music = document.getElementById('bg-music');
+const toggleBtn = document.getElementById('music-toggle');
+let isPlaying = false;
+
+toggleBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        music.pause();
+        toggleBtn.textContent = '▶️ 播放音乐';
+    } else {
+        music.play();
+        toggleBtn.textContent = '⏸ 暂停音乐';
+    }
+    isPlaying = !isPlaying;
+});
+</script>
+</body>
+</html>
